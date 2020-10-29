@@ -1,0 +1,102 @@
+{% extends "web/plantilla.html" %}
+
+{% load static %}
+{% block estilos %}
+    <script src="{% static 'dist/glide.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'dist/css/glide.core.min.css' %}">
+{% endblock estilos %}
+{% block contenido%}
+    <div id="contenido">
+        <div class="slider">
+            <ul>
+                {% for item in autos %}
+                 <li><img src="{{item.imagen.url}}" alt=""></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="section-servicios">
+            <h2>servicios</h2>
+            <div class=servicios-index>
+                <div class="servicios">
+                    <li>Lavado Completo</li>
+                    <img src="{% static 'img/Cómo-funciona-un-puente-de-lavado-para-autos.jpg'%}">
+                    <a href="servicios">Mostrar Más</a>
+                </div>
+                <div class="servicios">
+                    <li>Solo Tapiz</li>
+                    <img src="{% static 'img/219979_a6496540781f4a0b86bd2e9ea5be8788_mv2.jpg'%}">
+                    <a href="servicios.html">Mostrar Más</a>
+                </div>
+                <div class="servicios">
+                    <li>Lavado y Tapiz</li>
+                    <img src="{% static 'img/Funcionan-los-tratamientos-de-protección-de-la-pintura-2.jpg'%}">
+                    <a href="servicios.html">Mostrar Más</a>
+                </div>
+            </div>
+        </div>
+        <div class="section-clientes">
+            <h2>Clientes Felices</h2>
+            <div id="cli" class="glide">
+                <div class="glide__track" data-glide-el="track">
+                    <ul class="glide__slides">
+                        <li class="glide__slide clientes">
+                            <a href="{% static 'img/cliente1.jpg' %}" data-lightbox="cliente">
+                                <img src="{% static 'img/cliente1.jpg' %}" class="cliente">
+                            </a>
+                            <h3>Luis Gonzalez</h3>
+                            <h5>" Lavado alternativo y rapido. "</h5>
+                        </li>
+                        <li class="glide__slide clientes">
+                            <a href="{% static 'img/cliente2.jpg' %} " data-lightbox="cliente">
+                                <img src="{% static 'img/cliente2.jpg' %}">
+                            </a>
+                            <h3>Andrea Quezada</h3>
+                            <h5>" Excelente servicio, realicé una limpieza de tapiz y el auto quedó como nuevo. "
+                            </h5>
+                        </li>
+                        <li class="glide__slide clientes">
+                            <a href="{% static 'img/cliente3.jpg' %} " data-lightbox="cliente">
+                                <img src="{% static 'img/cliente3.jpg' %}">
+                            </a>
+                            <h3>Daniel Flores</h3>
+                            <h5>" Super bien el servicio. Personal amable. "</h5>
+                        </li>
+                        <li class="glide__slide clientes">
+                            <a href="{% static 'img/cliente4.jpg' %} " data-lightbox="cliente">
+                                <img src="{% static 'img/cliente4.jpg' %}">
+                            </a>
+                            <h3>Alejandro Teran</h3>
+                            <h5>" Recomendado Totalmente 100% Buena Atención y calidad "</h5>
+                        </li>
+                        <li class="glide__slide clientes">
+                            <a href="{% static 'img/cliente5.jpg' %} " data-lightbox="cliente">
+                                <img src="{% static 'img/cliente5.jpg' %}">
+                            </a>
+                            <h3>Hector Painamil</h3>
+                            <h5>" Queda bien bueno el lavado 👍. "</h5>
+                        </li>
+                        <li class="glide__slide clientes">
+                            <a href="{% static 'img/cliente6.jpg' %} " data-lightbox="cliente">
+                                <img src="{% static 'img/cliente6.jpg' %}">
+                            </a>
+                            <h3>Roberto Olivera</h3>
+                            <h5>" Buena atención duró el tiempo adecuado y el servicio estuvo muy bueno. "</h5>
+                        </li>
+    
+                    </ul>
+    
+                </div>
+                <div class="glide__arrows" data-glide-el="controls">
+                    <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><img
+                            src="{% static 'lightbox/images/prev.png' %}" alt=""></button>
+                    <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><img
+                            src="{% static 'lightbox/images/next.png' %}" alt=""></button>
+                </div>
+    
+            </div>
+        </div>
+
+    </div>
+    
+
+{% endblock contenido %}

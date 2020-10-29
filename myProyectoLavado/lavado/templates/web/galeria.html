@@ -1,0 +1,20 @@
+{% extends "web/plantilla.html" %} 
+{% load static %}
+{% block contenido %}
+<div class="galeria ">
+    
+    {% for item in autos %}
+    <div class="imagen">
+        <a href="{{item.imagen.url}}" data-lightbox="completo" data-title="Lavado Completo">
+            <img src="{{item.imagen.url}}" alt="">
+        </a>
+    </div>
+    {% endfor %}
+      
+
+
+</div>
+
+
+
+{% endblock contenido %}

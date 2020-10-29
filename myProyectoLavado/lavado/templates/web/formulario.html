@@ -1,0 +1,36 @@
+
+{% extends "web/plantilla.html" %}
+{% block contenido%}
+    
+<div class="section">
+    <h1>Registro de Usuario</h1>
+</div>
+
+<form action="" method="POST" onsubmit="return validarTodo()">
+{% csrf_token %}
+    <h4>Nombre:</h4>
+    <input type="text" minlength="3" maxlength="80" name="txtNombre" id="txtNombre" class="campo" required>
+
+    <h4>Apellido:</h4>
+    <input type="text" name="txtApellido" minlength="3" maxlength="80" id="txtApellido" class="campo" required>
+
+    <h4>Email:</h4>
+    <input type="email" name="txtEmail" id="txtEmail" class="campo" required>
+
+    <h4>Nombre Uuario:</h4>
+    <input type="text" name="txtUsuario" id="txtUsuario" class="campo">
+
+    <h4>Contraseña:</h4>
+    <input type="password" minlength="2" maxlength="8" name="txtContraseña" id="txtContraseña" class="campo" required>
+
+    <h4>Repetir Contraseña:</h4>
+    <input type="password" minlength="2" maxlength="8" name="txtContraseña2" id="txtContraseña2" class="campo" required>
+    <div class="botones">
+        <input type="submit" value="Registrar" class="boton">
+        <input type="reset" value="Limpiar" class="boton">
+    </div>
+         <div class="msg">
+         <h5>{{msg}}</h5>
+     </div>
+</form>
+{% endblock contenido %}

@@ -1,0 +1,29 @@
+ {% extends "web/plantilla.html" %}
+ {% block contenido %}
+ <div class="section">
+     <h1>Inicio de sesión</h1>
+ </div>
+
+ <form action="{% url 'LOGIN' %}" method="POST">
+     {% csrf_token %}
+     <h4>Usuario:</h4>
+     <input type="text" minlength="3" name="txtUser" maxlength="120" id="txtUser" class="campo" required>
+
+     <h4>Contraseña:</h4>
+     <input type="password" minlength="2" maxlength="8" name="txtContraseña" id="txtContraseña" class="campo" required>
+
+     <div class="botones">
+         <input type="submit" value="Entrar" class="boton">
+         <input type="reset" value="Limpiar" class="boton">
+     </div>
+     <div class="msg">
+         <h5>{{msg}}</h5>
+     </div>
+     <div class="registrate">
+         <h5>¿No tienes cuenta?<a href="{% url 'FORM'%}">Regístrate aquí</a></h5>
+
+     </div>
+ </form>
+
+
+ {% endblock contenido %}

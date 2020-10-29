@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lavados Miguel</title>
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <link href="{% static 'lightbox/css/lightbox.min.css' %}" rel="stylesheet" />
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block estilos %}
+    {% endblock estilos%}
+</head>
+
+<body>
+    <div id="contenedor">
+        <header>
+            <div id="header">
+                <img src="{% static 'img/road_trip.png' %}" alt="">
+                <h1>Lavados Miguel</h1>
+            </div>
+            <div id="nav">
+                <nav>
+                    <ul id="li" class="contenedor-header">
+                        <li><a href="{% url 'IND'%}">Inicio</a></li>
+                        <li><a href="{% url 'SERV'%}">Servicios</a></li>
+                        <li><a href="{% url 'GALE'%}">Galería</a></li>
+                        <li><a href="{% url 'QUIE'%}">Quienes Somos</a></li>
+
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'PROD'%}">Productos</a></li>
+                        <li><h6>Bienvenido {{user.first_name }} {{user.last_name}}</h6>
+                        <li><a href="{% url 'LOGOUT'%}">Cerrar sesión</a></li>
+                        
+                        {% else %}
+                        <li><a href="{% url 'LOGIN'%}">Inicio de sesión</a></li>
+                        <li><a href="{% url 'FORM'%}">Regístrate</a></li>
+
+
+                        {% endif %}
+
+                    </ul>
+                    <div class="menu" id="menu">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div id="contenido">
+            {% block  contenido %}
+            {% endblock contenido %}
+        </div>
+    
+        <div id="footer">
+            <div class="partfooter">
+                <img src="{% static 'img/road_trip2.png'%}" alt="">
+            </div>
+            <div class="partfooter">
+                <h4>INFORMACIÓN</h4>
+                <a href="quienes-somos">quienes somos</a>
+            </div>
+            <div class="partfooter">
+                <h4>ENLACES</h4>
+                <a href="formulario">Contáctanos</a>
+                <a href="{% url 'QUIE'%}#mapa">Mapa del sitio</a>
+            </div>
+            <div class="partfooter">
+                <h4>HORARIO DE ATENCIÓN</h4>
+                <h5>Lunes a Sabados de 10:00Hrs a 20:00Hrs</h5>
+            </div>
+        </div>
+    </div>
+    {% block js %}
+    
+    {% endblock js %}
+    <script src="https://kit.fontawesome.com/9ffd2c5561.js" crossorigin="anonymous"></script>
+    <script src="{% static 'lightbox/js/lightbox-plus-jquery.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+ {% extends "web/plantilla.html" %}
+ {% block contenido %}
+ <div class="section">
+                <h1>Agregar producto</h1>
+            </div>
+            <script>
+                function ir(){
+                    location.href='lista_producto';}
+            </script>
+            <form action="{% url 'PROD' %}" method="POST" onsubmit="return validarTodo()">
+                {% csrf_token %}
+                <h4>Nombre:</h4>
+                <input type="text" minlength="3" name="txtNombre" maxlength="120" id="txtNombre" class="campo" required>
+
+                <h4>precio:</h4>
+                <input type="number" min="1" name="txtPrecio" id="txtPrecio" class="campo" required>
+
+                <h4>descripción:</h4>
+                <textarea name="txtDescripcion" id="txtDescripcion" rows="10" cols="50"
+                    class="campo descripcion"> </textarea>
+                </textarea>
+
+                <h4>Stock:</h4>
+                <input type="number" min="1" name="txtStock" id="txtStock" class="campo" required>
+
+                <div class="botones">
+                    <input type="submit" value="Guardar" class="boton">
+                    <input type="reset" value="Limpiar" class="boton">
+                    <input type="button" value="Admin producto" class="boton" onclick="ir()">
+
+                </div>
+                <div class="msg">
+                    <h5>{{msg}}</h5>
+                </div>         
+            </form>
+
+
+ {% endblock contenido %}
+            

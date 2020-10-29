@@ -1,0 +1,38 @@
+ {% extends "web/plantilla.html" %}
+ {% block contenido %}
+ <div class="section">
+                <h1>Actualizar producto</h1>
+            </div>
+            <script>
+                function ir(){
+                    location.href='lista_producto';}
+            </script>
+            <form action="{% url 'MOD' %}" method="POST" >
+                {% csrf_token %}
+                <h4>Nombre:</h4>
+                <input type="text" minlength="3" name="txtNombre" maxlength="120" id="txtNombre" class="campo" required value={{producto.nombre}}>
+
+                <h4>precio:</h4>
+                <input type="number" min="1" name="txtPrecio" id="txtPrecio" class="campo" required value={{producto.precio}}>
+
+                <h4>descripción:</h4>
+                <textarea name="txtDescripcion" id="txtDescripcion" 
+                    class="campo descripcion">{{producto.descripcion}} </textarea>
+                </textarea>
+
+                <h4>Stock:</h4>
+                <input type="number" min="1" name="txtStock" id="txtStock" class="campo" required value={{producto.stock}}>
+
+                <div class="botones">
+                    <input type="submit" value="Actualizar" class="boton">
+                    <input type="button" value="Admin producto" class="boton" onclick="ir()">
+
+                </div>
+                <div class="msg">
+                    <h5>{{msg}}</h5>
+                </div>         
+            </form>
+
+
+ {% endblock contenido %}
+            
