@@ -7,7 +7,7 @@
                 function ir(){
                     location.href='lista_producto';}
             </script>
-            <form action="{% url 'PROD' %}" method="POST" onsubmit="return validarTodo()">
+            <form action="{% url 'PROD' %}" method="POST" onsubmit="return validarProducto()">
                 {% csrf_token %}
                 <h4>Nombre:</h4>
                 <input type="text" minlength="3" name="txtNombre" maxlength="120" id="txtNombre" class="campo" required>

@@ -18,7 +18,8 @@ class MisionAdmin(admin.ModelAdmin):
 
 class ProductoAdmin(admin.ModelAdmin):
     list_display=['nombre','precio','descripcion','stock']
-
+    search_fields=['nombre']
+    list_per_page = 10
 admin.site.register(SliderIndex, SliderIndexAdmin)
 admin.site.register(Galeria, GaleriaAdmin)
 admin.site.register(MisionyVision,MisionAdmin)

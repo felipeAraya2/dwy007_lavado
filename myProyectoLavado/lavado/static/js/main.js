@@ -17,14 +17,14 @@ function validarFecha() {
 
     return true;
 }
-
+//validaciones formulario de registro
 function validarNombre() {
     var nom = document.getElementById("txtNombre").value;
     var largo = nom.trim().length;
     if (largo >= 3 && largo <= 80) {
         return true;
     } else {
-        
+
         return false;
     }
 }
@@ -39,32 +39,25 @@ function validarApellido() {
     }
 }
 
-function validarNombreP() {
-    var nom = document.getElementById("txtNombre").value;
-    var largo = nom.trim().length;
-    if (largo >= 3 && largo <= 120) {
+function validarUsuario() {
+    var usu = document.getElementById("txtUsuario").value;
+    var largo = usu.trim().length;
+    if (largo >= 8) {
         return true;
     } else {
-        
         return false;
-
     }
 }
 
-function descripcion() {
-    var des = document.getElementById("txtDescripcion").value;
-    var largo = des.trim().length;
-    if (des != "") {
-        if (largo >= 3 && largo <= 200) {
-            return true;
-        } else {
-            return false;
-        }
+function validarContraseña() {
+    var con = document.getElementById("txtContraseña").value;
+    var largo = con.trim().length;
+    if (largo >= 8) {
+        return true;
     } else {
-        true
+        return false;
     }
 }
-
 
 function validarTodo() {
     var resp;
@@ -75,9 +68,61 @@ function validarTodo() {
     }
     resp = validarApellido();
     if (resp == false) {
+        alert("el apellido debe tener entre 3 a 80 caracteres")
+        return false;
+    }
+    resp = validarUsuario();
+    if (resp == false) {
+        alert("el nombre de usuario debe tener como mínimo 8 caracteres")
+        return false;
+    }
+    resp = validarContraseña();
+    if (resp == false) {
+        alert("La contraseña debe tener un mínimo de 8 caracteres")
         return false;
     }
 
+
+}
+//validaciones agregar producto
+
+function validarNombreP() {
+    var nom = document.getElementById("txtNombre").value;
+    var largo = nom.trim().length;
+    if (largo >= 3 && largo <= 120) {
+        return true;
+    } else {
+
+        return false;
+    }
+}
+
+function validarDescripcion() {
+    var des = document.getElementById("txtDescripcion").value;
+    var largo = des.trim().length;
+    if (des != 0) {
+        if (largo >= 3 && largo <= 200) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        true
+    }
+}
+
+function validarProducto() {
+    var resp;
+    resp = validarNombreP();
+    if (resp == false) {
+        alert("el nombre debe tener entre 3 a 120 caracteres")
+        return false;
+    }
+    resp = validarDescripcion();
+    if (resp == false) {
+        alert("si desea ingresar una descripción debe tener entre 3 a 200 caracteres")
+        return false;
+    }
 }
 
 //menu
@@ -101,4 +146,4 @@ var glide = new Glide('#cli', {
     }
 })
 
-glide.mount()
+glide.mount();

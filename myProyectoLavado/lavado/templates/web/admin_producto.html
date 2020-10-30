@@ -10,15 +10,16 @@
          var msg;
          var opcion = confirm("desea eliminar el producto " + producto + "?");
          if (opcion == true) {
-             location.href = 'eliminar/' + producto;
+             location.href = '/eliminar/' + producto +'/';
          } else {
-             msg = "canceló la eliminación";
+             msg = "eliminación cancelada";
+             alert(msg);
+
          }
-         alert(msg);
      }
 
      function actualizar(producto) {
-         location.href = '/buscar/' + producto;
+         location.href = '/buscar/' + producto +'/';
      }
  </script>
  <div class="section">
