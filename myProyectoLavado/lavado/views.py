@@ -4,6 +4,7 @@ from .models import SliderIndex, Galeria, MisionyVision,Producto
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, logout,login as login_aut
 from django.contrib.auth.decorators import login_required, permission_required
+import requests
 # Create your views here.
 def index (request):
     autos = SliderIndex.objects.all()
@@ -71,7 +72,6 @@ def busqueda_prod(request,id):
 @login_required(login_url='/login')
 @permission_required('lavado.view_producto',login_url='/login')
 @permission_required('lavado.change_producto',login_url='/login')
-
 def modificar(request):
     if request.POST:
         nombre = request.POST.get('txtNombre')
@@ -96,7 +96,9 @@ def modificar(request):
 @login_required(login_url='/login')
 @permission_required('lavado.view_producto',login_url='/login')
 def lista_producto(request):
-    producto = Producto.objects.all()
+    # producto = Producto.objects.all()
+    response = requests.get("http://localhost:8000/api/insumos/")
+    producto = response.json()
     return render (request,'web/admin_producto.html',{'lista_producto':producto})
 
 @login_required(login_url='/login')
@@ -108,13 +110,13 @@ def producto(request):
         descripcion = request.POST.get('txtDescripcion')
         stock = request.POST.get('txtStock')
 
-        producto = Producto(
-            nombre = nombre,
-            precio = precio,
-            descripcion = descripcion,
-            stock=stock
-        )
-        producto.save()
+        datos_json ={
+            "nombre":nombre,
+            "precio":precio,
+            "descripcion":descripcion,
+            "stock":stock
+        }
+        response = requests.post("http://localhost:8000/api/insumos/",data=datos_json)
         return render(request, 'web/producto.html',{'msg':'Grabó producto'})
 
 
