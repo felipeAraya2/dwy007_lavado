@@ -34,6 +34,8 @@
                         <li><a href="{% url 'LOGOUT'%}">Cerrar sesión</a></li>
                         
                         {% else %}
+                        <li><a href="{% url 'social:begin' 'facebook' %}">Login con facebook</a></li>
+
                         <li><a href="{% url 'LOGIN'%}">Inicio de sesión</a></li>
                         <li><a href="{% url 'FORM'%}">Regístrate</a></li>
 

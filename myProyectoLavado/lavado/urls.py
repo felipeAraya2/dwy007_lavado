@@ -15,4 +15,6 @@ urlpatterns = [
     path('eliminar/<id>/',eliminar, name='ELIMINAR'),
     path('buscar/<id>/',busqueda_prod,name='BUSCAR'),
     path('modificar',modificar,name='MOD'),
+    path('oauth/', include('social_django.urls', namespace='social'))
+
 ]
