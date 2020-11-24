@@ -11,6 +11,11 @@
     <script src="{% static 'js/main.js' %}"></script>
     {% block estilos %}
     {% endblock estilos%}
+
+    {% load pwa %}
+    {% progressive_web_app_meta %}
+    
+    
 </head>
 
 <body>

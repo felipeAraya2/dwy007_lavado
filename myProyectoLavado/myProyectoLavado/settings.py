@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
     'rest_framework',
     'social_django',
+    'pwa',
 ]
 
 MIDDLEWARE = [
@@ -129,6 +130,9 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
+
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'serviceworker.js')
+
 LOGIN_REDIRECT_URL='/'
 
 STATIC_URL = '/static/'
